@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <DATABASE>
+    <FIELDS>
+      <FIELD TYPE="STRING">UPlCodigo</FIELD>
+      <FIELD TYPE="LONGINT">UPlTipo</FIELD>
+      <FIELD TYPE="STRING">UPlNombre</FIELD>
+      <FIELD TYPE="STRING">UPlAAdmini</FIELD>
+      <FIELD TYPE="DOUBLE">UPlArea</FIELD>
+      <FIELD TYPE="DOUBLE">SHAPE_Leng</FIELD>
+      <FIELD TYPE="DOUBLE">SHAPE_Area</FIELD>
+    </FIELDS>
+  </DATABASE>
+  <SOURCE></SOURCE>
+  <HISTORY saga-version="7.8.2">
+    <TOOL library="shapes_polygons" id="1" name="Polygon Centroids">
+      <OPTION type="boolean" id="METHOD" name="Centroids for each part">false</OPTION>
+      <OPTION type="boolean" id="INSIDE" name="Force Inside">false</OPTION>
+      <INPUT type="shapes" id="POLYGONS" name="Polygons">
+        <FILE>C:/Users/fonsecj/Documents/Personal/R/BOGOtrip/app/www/UPla.shp</FILE>
+      </INPUT>
+      <OUTPUT type="shapes" id="CENTROIDS" name="Centroids">UPla</OUTPUT>
+    </TOOL>
+  </HISTORY>
+  <FILE></FILE>
+  <DESCRIPTION></DESCRIPTION>
+  <PROJECTION>
+    <OGC_WKT>GEOGCS["GCS_MAGNA",DATUM["D_MAGNA",SPHEROID["GRS_1980",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]</OGC_WKT>
+    <PROJ4>+proj=longlat +a=6378137.000000 +b=6356752.314140 +no_defs</PROJ4>
+    <EPSG>-1</EPSG>
+  </PROJECTION>
+</SAGA_METADATA>

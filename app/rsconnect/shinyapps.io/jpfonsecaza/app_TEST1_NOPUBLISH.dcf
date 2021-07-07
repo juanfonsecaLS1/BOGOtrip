@@ -1,0 +1,13 @@
+name: app_TEST1_NOPUBLISH
+title: app_TEST1_NOPUBLISH
+username:
+account: jpfonsecaza
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4355238
+bundleId: 4790030
+url: https://jpfonsecaza.shinyapps.io/app_TEST1_NOPUBLISH/
+when: 1625527072.32429
+lastSyncTime: 1625527072.32429
+asMultiple: FALSE
+asStatic: FALSE
