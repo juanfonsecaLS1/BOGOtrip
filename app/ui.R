@@ -1,53 +1,63 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
 
+library(tidyverse)
+library(shiny)
+library(leaflet)
+library(lubridate)
+library(shinycssloaders)
+library(rgdal)
+library(shinythemes)
 
-if(!require(tidyverse)) install.packages('tidyverse')
-if(!require(shiny)) install.packages('shiny')
-if(!require(leaflet)) {
-  devtools::install_github('rstudio/leaflet')
-  devtools::install_github("rstudio/leaflet.providers")
-  devtools::install_github('bhaskarvk/leaflet.extras')
-}
-if(!require(lubridate)) install.packages('lubridate')
-if(!require(shinycssloaders)) install.packages('shinycssloaders')
-if(!require(rgdal)) install.packages('rgdal')
-
-# Define UI for application that draws a histogram
-shinyUI(fluidPage(div(class="outer",
-
-
-                      leafletOutput("map"),
-                      absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
-                                    draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
-                                    width = 330, height = "auto",
-                                    h1("Tiempos de viaje"),
-                                    p(em("lalalaalala")),
-                                    br(),
-                                    selectInput(inputId = "variable",label = "Variable/Variable",
-                                                choices = c("Tiempo/Time" = "t",
-                                                            "Distancia/Distance" = "d"),
-                                                "Tiempo/Time"),
-                                    br(),
-                                    selectInput(inputId = "mode",label = "Modo/Mode",
-                                                choices = c("Caminando/Walk" = "Walk",
-                                                            "Bicicleta/Bike" = "Bike",
-                                                            "Carro/Car" = "Car"),
-                                                "Caminando/Walk"),
-                                    br(),
-                                    selectInput(inputId = "value",label = "Valor/Value",
-                                                choices = c("Absoluto/Absolute" = "a",
-                                                            "Proporción/Ratio" = "r"),
-                                                "Absoluto/Absolute"),
-                                    br(),
-                                    checkboxInput("legend", "Show legend", TRUE)
-                                    ),
-                      tags$head(tags$style("#map{height:100vh !important;}"))
-
-)))
+shinyUI(fluidPage(
+  theme = shinytheme("yeti"),
+  leafletOutput("map"),
+  absolutePanel(
+    id = "controls",
+    class = "panel panel-default",
+    fixed = FALSE,
+    draggable = FALSE,
+    style = " background-color: white;
+              opacity: 0.70;
+              padding: 20px 20px 20px 20px;
+              margin: auto;
+              border-radius: 5pt;
+              box-shadow: 0pt 0pt 6pt 0px rgba(61,59,61,0.48);
+              padding-bottom: 2mm;
+              padding-top: 1mm;",
+    top = "auto",
+    left = 20,
+    right = "auto",
+    bottom = 20,
+    width = 250,
+    height = "auto",
+    h1("Tiempos de viaje"),
+    p(em("lalalaalala")),
+    selectInput(
+      inputId = "variable",
+      label = "Variable/Variable",
+      choices = c("Tiempo/Time" = "t",
+                  "Distancia/Distance" = "d"),
+      selected = "Tiempo/Time"
+    ),
+    selectInput(
+      inputId = "mode",
+      label = "Modo/Mode",
+      choices = c(
+        "Caminando/Walk" = "Walk",
+        "Bicicleta/Bike" = "Bike",
+        "Carro/Car" = "Car"
+      ),
+      selected = "Caminando/Walk"
+    ),
+    selectInput(
+      inputId = "value",
+      label = "Valor/Value",
+      choices = c(
+        "Absoluto/Absolute" = "a",
+        "Proporción/Ratio" = "r"
+      ),
+      "Absoluto/Absolute"
+    ),
+    checkboxInput("legend", "Show legend", TRUE)
+  ),
+  tags$head(tags$style("#map{height:100vh !important;}"))
+))

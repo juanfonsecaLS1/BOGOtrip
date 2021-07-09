@@ -28,7 +28,7 @@ pick_units<-function(variable,value){
     # Definition of units
     uni<-c("da"="km",
            "dr"="km/km",
-           "ta"="minutes",
+           "ta"="mins",
            "tr"="min/min")
 
     # Units for return
