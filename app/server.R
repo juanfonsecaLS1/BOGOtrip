@@ -69,7 +69,7 @@ shinyServer(function(input, output) {
                         highlightOptions = highlightOptions(color = "white", weight = 2,
                                                             bringToFront = TRUE),label = ~str_to_title(UPlNombre))%>%
             addProviderTiles(providers$CartoDB.Positron, options = providerTileOptions(noWrap = TRUE) ) %>%
-            fitBounds(-74.079,4.46,-74.065, 4.80) ## Bogotá
+                fitBounds(-74.35,4.5,-74.03, 4.78) ## Bogotá
     })
 
     #Subset data specific origin
